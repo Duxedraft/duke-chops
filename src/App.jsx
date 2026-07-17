@@ -25,7 +25,7 @@ function PlateCard({ dish, index, onOpen }) {
 
   return (
     <article
-      className={`group relative cursor-pointer overflow-hidden rounded-[2px] border bg-ink-soft opacity-0 translate-y-6 animate-rise ${edge} transition-[border-color,box-shadow] duration-[350ms] ease-out hover:border-brass hover:shadow-[0_22px_50px_-20px_rgba(0,0,0,0.6)] focus-visible:outline-2 focus-visible:outline-brass focus-visible:outline-offset-4 motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:translate-y-0`}
+      className={`group relative cursor-pointer overflow-hidden rounded-xs border bg-ink-soft opacity-0 translate-y-6 animate-rise ${edge} transition-[border-color,box-shadow] duration-350 ease-out hover:border-brass hover:shadow-[0_22px_50px_-20px_rgba(0,0,0,0.6)] focus-visible:outline-2 focus-visible:outline-brass focus-visible:outline-offset-4 motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:translate-y-0`}
       tabIndex={0}
       role="button"
       aria-label={`Open recipe for ${dish.title}`}
@@ -35,13 +35,13 @@ function PlateCard({ dish, index, onOpen }) {
     >
       <PlateArt
         dish={dish}
-        className="aspect-[4/5] [&_svg]:transition-transform [&_svg]:duration-[600ms] [&_svg]:ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[&_svg]:scale-[1.035]"
+        className="aspect-4/5 [&_svg]:transition-transform [&_svg]:duration-600 [&_svg]:ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[&_svg]:scale-[1.035]"
       />
-      <div className={`border-t ${edge} px-[22px] pt-5 pb-[22px]`}>
+      <div className={`border-t ${edge} px-5.5 pt-5 pb-5.5`}>
         <span className="mb-2 block font-mono text-[10.5px] tracking-[0.14em] text-brass uppercase">
           Plate No. {dish.no}
         </span>
-        <h3 className="mb-2 font-serif text-[21px] leading-[1.25] font-[460]">
+        <h3 className="mb-2 font-serif text-[21px] leading-tight font-[460]">
           {dish.title}
         </h3>
         <p className="m-0 text-[12.5px] leading-normal text-paper-dim">{dish.medium}</p>
@@ -64,30 +64,30 @@ function MetaFact({ label, value }) {
 function RecipeDetail({ dish, onClose, isOpen }) {
   return (
     <div
-      className={`relative mx-auto w-full max-w-[880px] border bg-ink-soft ${edgeStrong} transition-transform duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-y-0 scale-100" : "translate-y-[18px] scale-[0.985]"}`}
+      className={`relative mx-auto w-full max-w-220 border bg-ink-soft ${edgeStrong} transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-y-0 scale-100" : "translate-y-4.5 scale-[0.985]"}`}
       role="dialog"
       aria-modal="true"
     >
       <button
-        className={`absolute top-[18px] right-[18px] z-[3] flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-full border bg-[rgba(23,20,15,0.7)] text-lg leading-none text-paper ${edge} transition-[border-color,transform] duration-200 hover:rotate-90 hover:border-brass`}
+        className={`absolute top-4.5 right-4.5 z-3 flex h-9.5 w-9.5 cursor-pointer items-center justify-center rounded-full border bg-[rgba(23,20,15,0.7)] text-lg leading-none text-paper ${edge} transition-[border-color,transform] duration-200 hover:rotate-90 hover:border-brass`}
         aria-label="Close recipe"
         onClick={onClose}
       >
         &times;
       </button>
-      <PlateArt dish={dish} className="aspect-[16/8] overflow-hidden [&_svg]:relative" />
+      <PlateArt dish={dish} className="aspect-16/8 overflow-hidden [&_svg]:relative" />
       <div className="p-[clamp(24px,4vw,46px)]">
         <span className="font-mono text-[11px] tracking-[0.16em] text-brass uppercase">
           Plate No. {dish.no} — {dish.medium}
         </span>
-        <h2 className="my-[10px] mb-3.5 font-serif text-[clamp(28px,4vw,42px)] leading-[1.08] font-normal">
+        <h2 className="my-2.5 mb-3.5 font-serif text-[clamp(28px,4vw,42px)] leading-[1.08] font-normal">
           {dish.title}
         </h2>
         <p className="mb-7 max-w-[62ch] text-[15px] leading-[1.75] text-paper-dim">
           {dish.note}
         </p>
         <div
-          className={`mb-[34px] flex flex-wrap gap-[30px] border-y py-4 font-mono text-[10.5px] tracking-[0.1em] text-paper-dim uppercase ${edge}`}
+          className={`mb-8 flex flex-wrap gap-7 border-y py-4 font-mono text-[10.5px] tracking-widest text-paper-dim uppercase ${edge}`}
         >
           <MetaFact label="Time" value={dish.time} />
           <MetaFact label="Serves" value={dish.serves} />
@@ -120,17 +120,17 @@ function RecipeDetail({ dish, onClose, isOpen }) {
               {dish.steps.map((step, i) => (
                 <li
                   key={step}
-                  className="relative pb-[22px] pl-10 text-[14.5px] leading-[1.7] text-paper-dim last:pb-0"
+                  className="relative pb-5.5 pl-10 text-[14.5px] leading-[1.7] text-paper-dim last:pb-0"
                 >
                   <span
-                    className={`absolute top-[-1px] left-0 flex h-[26px] w-[26px] items-center justify-center rounded-full border font-mono text-[11px] text-brass ${edge}`}
+                    className={`absolute -top-px left-0 flex h-6.5 w-6.5 items-center justify-center rounded-full border font-mono text-[11px] text-brass ${edge}`}
                   >
                     {i + 1}
                   </span>
                   {i < dish.steps.length - 1 && (
                     <span
                       aria-hidden="true"
-                      className="absolute top-[26px] bottom-0 left-[13px] w-px bg-[rgba(176,138,78,0.2)]"
+                      className="absolute top-6.5 bottom-0 left-3.25 w-px bg-[rgba(176,138,78,0.2)]"
                     />
                   )}
                   {step}
@@ -171,12 +171,12 @@ export default function App() {
   return (
     <>
       <div
-        className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[length:3px_3px] opacity-50"
+        className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[3px_3px] opacity-50"
         aria-hidden="true"
       />
 
       <nav
-        className={`sticky top-0 z-50 flex items-center justify-between py-[22px] ${pxPage} bg-[linear-gradient(180deg,rgba(23,20,15,0.96)_0%,rgba(23,20,15,0.85)_70%,rgba(23,20,15,0)_100%)] backdrop-blur-[6px]`}
+        className={`sticky top-0 z-50 flex items-center justify-between py-5.5 ${pxPage} bg-[linear-gradient(180deg,rgba(23,20,15,0.96)_0%,rgba(23,20,15,0.85)_70%,rgba(23,20,15,0)_100%)] backdrop-blur-[6px]`}
       >
         <a
           href="#"
@@ -192,8 +192,8 @@ export default function App() {
         </a>
       </nav>
 
-      <header className={`relative z-1 mx-auto max-w-[1180px] pt-[clamp(48px,12vh,120px)] pb-[clamp(40px,8vh,90px)] ${pxPage}`}>
-        <div className="mb-7 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] text-brass uppercase before:h-px before:w-[30px] before:bg-brass before:content-['']">
+      <header className={`relative z-1 mx-auto max-w-295 pt-[clamp(48px,12vh,120px)] pb-[clamp(40px,8vh,90px)] ${pxPage}`}>
+        <div className="mb-7 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] text-brass uppercase before:h-px before:w-7.5 before:bg-brass before:content-['']">
           Exhibition No. 01 — Open Now
         </div>
         <h1 className="mb-7 max-w-[16ch] font-serif text-[clamp(40px,7vw,92px)] leading-[1.02] font-[340] tracking-[-0.01em] [font-optical-sizing:auto]">
@@ -204,7 +204,7 @@ export default function App() {
           A small collection of everyday cooking, treated with the same attention a gallery gives its walls. Every plate is labelled like a piece — medium, composition, and the recipe behind it — kept clean, minimal, and easy to actually cook from.
         </p>
         <div
-          className={`flex flex-wrap gap-10 border-t pt-[22px] font-mono text-[11px] tracking-[0.08em] text-paper-dim uppercase ${edge}`}
+          className={`flex flex-wrap gap-10 border-t pt-5.5 font-mono text-[11px] tracking-[0.08em] text-paper-dim uppercase ${edge}`}
         >
           <MetaFact label="Pieces" value="06" />
           <MetaFact label="Medium" value="Seasonal, everyday" />
@@ -213,7 +213,7 @@ export default function App() {
       </header>
 
       <main
-        className={`relative z-1 mx-auto grid max-w-[1280px] grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-[clamp(28px,3vw,44px)] pt-5 pb-[140px] ${pxPage}`}
+        className={`relative z-1 mx-auto grid max-w-7xl grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-[clamp(28px,3vw,44px)] pt-5 pb-35 ${pxPage}`}
         id="gallery"
         aria-label="Recipe gallery"
       >
