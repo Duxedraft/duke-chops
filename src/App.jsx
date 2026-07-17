@@ -193,8 +193,8 @@ export default function App() {
       </nav>
 
       <header className={`relative z-1 mx-auto max-w-295 pt-[clamp(48px,12vh,120px)] pb-[clamp(40px,8vh,90px)] ${pxPage}`}>
-        <div className="mb-7 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] text-brass uppercase before:h-px before:w-7.5 before:bg-brass before:content-['']">
-          Exhibition No. 01 — Open Now
+        <div className="mb-7 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] text-brass uppercase"> {/* code for a dash before the text (before:h-px before:w-7.5 before:bg-brass before:content-[''])*/}
+          Current exhibition — Vol. 03
         </div>
         <h1 className="mb-7 max-w-[16ch] font-serif text-[clamp(40px,7vw,92px)] leading-[1.02] font-[340] tracking-[-0.01em] [font-optical-sizing:auto]">
           Six dishes,{" "}
