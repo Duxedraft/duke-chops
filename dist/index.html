@@ -3,15 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Table — An Exhibition of Everyday Cooking</title>
+<title>Duke Chops — An Exhibition of Everyday Cooking</title>
 <meta name="description" content="A curated gallery of six dishes, presented as art pieces, with clean, minimal recipes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..480;1,9..144,400..480&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-wgnPBQhE.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-DgoWowXo.css">
 </head>
 <body>
-  <div id="root"></div>
+  <div class="wall-texture" aria-hidden="true"></div>
+
+  <nav class="site-nav">
+    <a href="#" class="mark">Duke Chops<em>.</em></a>
+    <a href="#gallery" class="catalog-link">View Catalog</a>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">Exhibition No. 01 — Open Now</div>
+    <h1>Six dishes, <span class="accent">hung like paintings.</span></h1>
+    <p class="sub">A small collection of everyday cooking, treated with the same attention a gallery gives its walls. Every plate is labelled like a piece — medium, composition, and the recipe behind it — kept clean, minimal, and easy to actually cook from.</p>
+    <div class="meta-row">
+      <div>Pieces<strong>06</strong></div>
+      <div>Medium<strong>Seasonal, everyday</strong></div>
+      <div>Curated for<strong>Home kitchens</strong></div>
+    </div>
+  </header>
+
+  <main class="gallery" id="gallery" aria-label="Recipe gallery"></main>
+
+  <div class="veil" id="veil">
+    <div class="detail" id="detail" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <footer class="site-footer">
+    <span class="mark">Duke Chops.</span>
+    <span>Every piece cooks in under two hours — no reservation required.</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
