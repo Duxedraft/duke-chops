@@ -232,13 +232,13 @@ export default function App() {
       </div>
 
       <footer
-        className={`relative z-1 flex flex-wrap items-center justify-between gap-4 border-t py-10 pb-14 font-mono text-[11px] tracking-[0.08em] text-paper-dim uppercase ${edge} ${pxPage}`}
+        className={`relative z-1 flex flex-wrap items-center justify-between gap-4 border-t py-10 pb-14 font-mono text-xs tracking-[0.08em] text-hush/30 ${edge} ${pxPage}`}
       >
-        <span className="font-serif text-base tracking-normal text-paper normal-case">
-          Duke Chops.
+        <span className="font-serif tracking-normal normal-case">
+          Duke Chops — A food journal. 
         </span>
         <span>
-          Every piece cooks in under two hours — no reservation required.
+          All rights reserved. Eaten shortly after publication.
         </span>
       </footer>
     </>
