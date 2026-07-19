@@ -24,17 +24,15 @@ export default function ExhibitionTabs({ exhibitions, activeId, onSelect }) {
             role="tab"
             aria-selected={isActive}
             onClick={() => onSelect(exhibition.id)}
-            className={`relative -mb-px cursor-pointer border-b-2 px-4 py-2.5 font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-200 ${
+            className={`relative -mb-px cursor-pointer border-b-2 px-4 py-2.5 font-mono text-[10px] tracking-[0.12em] transition-colors duration-200 ${
               isActive
-                ? "border-brass text-paper"
-                : "border-transparent text-paper-dim hover:text-paper"
+                ? "border-brass text-hush"
+                : "border-transparent text-hush/50 hover:text-hush/70"
             }`}
           >
-            Vol. {exhibition.volume}
+            Vol.{exhibition.volume}
             {exhibition.status === "archived" && (
-              <span className="ml-1.5 normal-case text-paper-dim/70">
-                (archived)
-              </span>
+              <span className="ml-1.5 normal-case text-paper-dim/70"></span>
             )}
           </button>
         );

@@ -8,11 +8,11 @@ import "./index.css";
 
 function MetaFact({ label, value }) {
   return (
-    <div className="font-mono text-[11px] tracking-[0.08em] text-paper-dim uppercase">
+    <div className="font-mono text-[11px] tracking-[0.08em] text-hush/50 uppercase">
       {label}
-      <strong className="mt-1.5 block font-sans text-[15px] tracking-normal text-paper normal-case">
+      <div className="mt-1.5 block font-mono text-xs tracking-normal text-hush normal-case">
         {value}
-      </strong>
+      </div>
     </div>
   );
 }
@@ -102,7 +102,8 @@ function RecipeDetail({ dish, onClose, isOpen }) {
 
 export default function App() {
   const [activeExhibitionId, setActiveExhibitionId] = useState(
-    () => exhibitions.find((e) => e.status === "current")?.id ?? exhibitions[0].id
+    () =>
+      exhibitions.find((e) => e.status === "current")?.id ?? exhibitions[0].id,
   );
   const activeExhibition =
     exhibitions.find((e) => e.id === activeExhibitionId) ?? exhibitions[0];
@@ -113,6 +114,11 @@ export default function App() {
   const selectedDish = isOpen ? dishes[selectedIndex] : null;
 
   const closeDetail = useCallback(() => {
+    setSelectedIndex(null);
+  }, []);
+
+  const handleSelectExhibition = useCallback((id) => {
+    setActiveExhibitionId(id);
     setSelectedIndex(null);
   }, []);
 
@@ -168,8 +174,10 @@ export default function App() {
         <div className="mb-7 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] text-hush/30 uppercase">
           {" "}
           {/* code for a dash before the text (before:h-px before:w-7.5 before:bg-hush before:content-[''])*/}
-          {activeExhibition.status === "current" ? "Current exhibition" : "Archived exhibition"} — Vol.{" "}
-          {activeExhibition.volume}
+          {activeExhibition.status === "current"
+            ? "Current exhibition"
+            : "Archived exhibition"}{" "}
+          — Vol. {activeExhibition.volume}
         </div>
         <h1 className="mb-7 max-w-[16ch] text-hush font-serif text-[clamp(40px,7vw,92px)] leading-[1.02] font-extralight tracking-[-0.01em] [font-optical-sizing:auto]">
           {activeExhibition.headingPlain}{" "}
@@ -178,14 +186,17 @@ export default function App() {
           </span>
         </h1>
         <p className="mb-10 max-w-[46ch] text-[clamp(15px,1.6vw,18px)] leading-[1.7] text-hush/50">
-         {activeExhibition.intro}
+          {activeExhibition.intro}
         </p>
         <div
           className={`flex flex-wrap gap-10 border-t pt-5.5 font-mono text-[11px] tracking-[0.08em] text-hush/50 uppercase ${edge}`}
         >
-           <MetaFact label="Pieces" value={activeExhibition.meta.pieces} />
-          <MetaFact label="Medium" value={activeExhibition.meta.medium} />
-          <MetaFact label="Curated for" value={activeExhibition.meta.curatedFor} />
+          <MetaFact label="Pieces" value={activeExhibition.meta.pieces} />
+          <MetaFact label="Period" value={activeExhibition.meta.period} />
+          <MetaFact
+            label="Curated for"
+            value={activeExhibition.meta.curatedFor}
+          />
         </div>
       </header>
 
