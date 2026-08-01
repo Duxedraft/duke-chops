@@ -125,6 +125,7 @@ function RecipeDetail({ dish, onClose, isOpen }) {
   );
 }
 
+// Main app component
 export default function App() {
   const [activeExhibitionId, setActiveExhibitionId] = useState(
     () =>
@@ -210,7 +211,7 @@ export default function App() {
             {activeExhibition.headingAccent}
           </span>
         </h1>
-        <p className="mb-10 max-w-[46ch] text-[clamp(15px,1.6vw,18px)] leading-[1.7] text-hush/50">
+        <p className="mb-10 max-w-[50ch] text-[clamp(15px,1.6vw,18px)] leading-[1.7] text-hush/50">
           {activeExhibition.intro}
         </p>
         <div
