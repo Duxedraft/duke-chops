@@ -35,7 +35,7 @@ export default function PlateCard({ dish, index, onOpen }) {
       />
       <div className={`border-t ${edge} px-5.5 pt-5 pb-5.5`}>
         <span className="mb-2 block font-mono text-[10.5px] tracking-[0.14em] text-brass uppercase">
-          Plate No. {dish.no}
+          Dish No. {dish.no}
         </span>
         <h3 className="mb-2 font-serif text-[21px] leading-tight font-[460]">
           {dish.title}

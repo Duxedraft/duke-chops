@@ -6,11 +6,20 @@ import ExhibitionTabs from "./components/ExhibitionTabs";
 import { edge, edgeStrong, pxPage } from "./lib/theme";
 import "./index.css";
 
-function MetaFact({ label, value }) {
+function MetaFact({
+  label,
+  value,
+  labelClassName = "text-hush/50",
+  valueClassName = "text-hush",
+}) {
   return (
-    <div className="font-mono text-[11px] tracking-[0.08em] text-hush/50 uppercase">
+    <div
+      className={`font-mono text-[11px] tracking-[0.08em] uppercase ${labelClassName}`}
+    >
       {label}
-      <div className="mt-1.5 block font-mono text-xs tracking-normal text-hush normal-case">
+      <div
+        className={`mt-1.5 block font-mono text-xs tracking-normal normal-case ${valueClassName}`}
+      >
         {value}
       </div>
     </div>
@@ -34,7 +43,7 @@ function RecipeDetail({ dish, onClose, isOpen }) {
       <PlateArt dish={dish} className="aspect-16/8" />
       <div className="p-[clamp(24px,4vw,46px)]">
         <span className="font-mono text-[11px] tracking-[0.16em] text-brass uppercase">
-          Plate No. {dish.no} — {dish.medium}
+          Dish No. {dish.no} — {dish.medium}
         </span>
         <h2 className="my-2.5 mb-3.5 font-serif text-[clamp(28px,4vw,42px)] leading-[1.08] font-normal">
           {dish.title}
@@ -43,11 +52,26 @@ function RecipeDetail({ dish, onClose, isOpen }) {
           {dish.note}
         </p>
         <div
-          className={`mb-8 flex flex-wrap gap-7 border-y py-4 font-mono text-[10.5px] tracking-widest text-paper-dim uppercase ${edge}`}
+          className={`mb-8 flex flex-wrap gap-10 border-y py-4 font-mono text-[10.5px] tracking-widest text-paper uppercase ${edge}`}
         >
-          <MetaFact label="Time" value={dish.time} />
-          <MetaFact label="Serves" value={dish.serves} />
-          <MetaFact label="Difficulty" value={dish.difficulty} />
+          <MetaFact
+            label="Time"
+            value={dish.time}
+            labelClassName="text-paper/60"
+            valueClassName="text-paper"
+          />
+          <MetaFact
+            label="Serves"
+            value={dish.serves}
+            labelClassName="text-paper/60"
+            valueClassName="text-paper"
+          />
+          <MetaFact
+            label="Difficulty"
+            value={dish.difficulty}
+            labelClassName="text-paper/60"
+            valueClassName="text-paper"
+          />
         </div>
         <div className="grid grid-cols-1 gap-[clamp(28px,4vw,56px)] min-[620px]:grid-cols-[1fr_1.5fr]">
           <div>
@@ -162,7 +186,7 @@ export default function App() {
       </nav>
 
       <header
-        className={`relative z-1 mx-auto max-w-295 pt-[clamp(48px,12vh,120px)] pb-[clamp(40px,8vh,90px)] ${pxPage}`}
+        className={`relative z-1 mx-auto max-w-7xlppph pt-[clamp(48px,12vh,120px)] pb-[clamp(40px,8vh,90px)] ${pxPage}`}
       >
         <div className="mb-8">
           <ExhibitionTabs
@@ -192,7 +216,7 @@ export default function App() {
           className={`flex flex-wrap gap-10 border-t pt-5.5 font-mono text-[11px] tracking-[0.08em] text-hush/50 uppercase ${edge}`}
         >
           <MetaFact label="Pieces" value={activeExhibition.meta.pieces} />
-          <MetaFact label="Period" value={activeExhibition.meta.period} />
+          <MetaFact label="Category" value={activeExhibition.meta.category} />
           <MetaFact
             label="Curated for"
             value={activeExhibition.meta.curatedFor}
@@ -235,11 +259,9 @@ export default function App() {
         className={`relative z-1 flex flex-wrap items-center justify-between gap-4 border-t py-10 pb-14 font-mono text-xs tracking-[0.08em] text-hush/30 ${edge} ${pxPage}`}
       >
         <span className="font-serif tracking-normal normal-case">
-          Duke Chops — A food journal. 
+          Duke Chops — A food journal.
         </span>
-        <span>
-          All rights reserved. Eaten shortly after publication.
-        </span>
+        <span>All rights reserved. Eaten shortly after publication.</span>
       </footer>
     </>
   );

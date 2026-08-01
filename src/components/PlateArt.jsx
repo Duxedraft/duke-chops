@@ -1,13 +1,3 @@
-/**
- * PlateArt
- * Renders a dish's image inside a bordered "frame" div. Used both as the
- * thumbnail on gallery cards and as the header image in the recipe detail
- * view — pass a `className` to control aspect ratio / hover behavior per
- * use case.
- *
- * @param {object} dish - a dish object from dishes.js (needs `image`, `title`)
- * @param {string} [className] - extra classes applied to the wrapping frame
- */
 export default function PlateArt({ dish, className = "" }) {
   return (
     <div

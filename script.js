@@ -1,5 +1,5 @@
 /* ==========================================================================
-   THE TABLE — data + rendering
+   Data + rendering
    Each dish is an abstract "plated" composition rendered in SVG so the
    gallery has no dependency on external photography. Swap `art` for a
    licensed photograph whenever one is ready — see README.
