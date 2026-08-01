@@ -9,7 +9,7 @@ export const vol01 = {
   headingPlain: "9 dishes,",
   headingAccent: "a black and green affair.",
   intro:
-    "An early exploration of matcha and food-grade charcoal across pastries, fresh pasta, desserts, and a few unexpected experiments. Kept here as an archive rather than retired—the recipes still hold up.",
+    "An early exploration of matcha and food-grade charcoal across pastries, fresh pasta, desserts, and a few unexpected experiments. Kept here as an archive rather than retired, the recipes still hold up.",
   meta: {
     pieces: "9",
     category: "Pastries, pasta, desserts",

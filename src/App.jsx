@@ -205,13 +205,13 @@ export default function App() {
             : "Archived exhibition"}{" "}
           — Vol. {activeExhibition.volume}
         </div>
-        <h1 className="mb-7 max-w-[16ch] text-hush font-serif text-[clamp(40px,7vw,92px)] leading-[1.02] font-extralight tracking-[-0.01em] [font-optical-sizing:auto]">
+        <h1 className="mb-7 max-w-[30ch] text-hush font-serif text-[clamp(40px,7vw,92px)] leading-[1.02] font-extralight tracking-[-0.01em] [font-optical-sizing:auto]">
           {activeExhibition.headingPlain}{" "}
           <span className="font-[480] text-clay italic">
             {activeExhibition.headingAccent}
           </span>
         </h1>
-        <p className="mb-10 max-w-[50ch] text-[clamp(15px,1.6vw,18px)] leading-[1.7] text-hush/50">
+        <p className="mb-10 max-w-[120ch] text-[clamp(15px,1.6vw,18px)] leading-[1.7] text-hush/50">
           {activeExhibition.intro}
         </p>
         <div
