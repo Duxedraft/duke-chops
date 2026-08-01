@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { exhibitions } from "./exhibitions";
+import { exhibitions } from "./data/exhibitions";
 import PlateArt from "./components/PlateArt";
 import PlateCard from "./components/PlateCard";
 import ExhibitionTabs from "./components/ExhibitionTabs";
@@ -27,9 +27,10 @@ function MetaFact({
 }
 
 function RecipeDetail({ dish, onClose, isOpen }) {
+  // Change how the recipe card looks here.
   return (
     <div
-      className={`relative mx-auto w-full max-w-220 border bg-ink-soft ${edgeStrong} transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-y-0 scale-100" : "translate-y-4.5 scale-[0.985]"}`}
+      className={`relative overflow-hidden mx-auto w-full max-w-220 rounded-3xl border bg-ink-soft ${edgeStrong} transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-y-0 scale-100" : "translate-y-4.5 scale-[0.985]"}`}
       role="dialog"
       aria-modal="true"
     >
@@ -85,7 +86,7 @@ function RecipeDetail({ dish, onClose, isOpen }) {
                   className="flex justify-between gap-3 border-b border-dashed border-[rgba(239,232,220,0.14)] py-2.5 text-sm leading-snug"
                 >
                   <span className="text-paper">{name}</span>
-                  <span className="font-mono text-[12.5px] whitespace-nowrap text-paper-dim">
+                  <span className="font-mono text-sm whitespace-nowrap text-paper-dim">
                     {amt}
                   </span>
                 </li>

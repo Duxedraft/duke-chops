@@ -21,7 +21,7 @@ export default function PlateCard({ dish, index, onOpen }) {
 
   return (
     <article
-      className={`group relative cursor-pointer overflow-hidden rounded-xs border bg-ink-soft opacity-0 translate-y-6 animate-rise ${edge} transition-[border-color,box-shadow] duration-350 ease-out hover:border-brass hover:shadow-[0_22px_50px_-20px_rgba(0,0,0,0.6)] focus-visible:outline-2 focus-visible:outline-brass focus-visible:outline-offset-4 motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:translate-y-0`}
+      className={`group relative cursor-pointer overflow-hidden rounded-3xl border bg-ink-soft opacity-0 translate-y-6 animate-rise ${edge} transition-[border-color,box-shadow] duration-350 ease-out hover:border-brass hover:shadow-[0_22px_50px_-20px_rgba(0,0,0,0.6)] focus-visible:outline-2 focus-visible:outline-brass focus-visible:outline-offset-4 motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:translate-y-0`}
       tabIndex={0}
       role="button"
       aria-label={`Open recipe for ${dish.title}`}
