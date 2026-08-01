@@ -188,7 +188,7 @@ export default function App() {
       </nav>
 
       <header
-        className={`relative z-1 mx-auto max-w-7xlppph pt-[clamp(48px,12vh,120px)] pb-[clamp(40px,8vh,90px)] ${pxPage}`}
+        className={`relative z-1 mx-auto max-w-7xl pt-[clamp(48px,12vh,120px)] pb-[clamp(40px,8vh,90px)] ${pxPage}`}
       >
         <div className="mb-8">
           <ExhibitionTabs
