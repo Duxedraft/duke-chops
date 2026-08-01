@@ -3,8 +3,13 @@ import { exhibitions } from "./data/exhibitions";
 import PlateArt from "./components/PlateArt";
 import PlateCard from "./components/PlateCard";
 import ExhibitionTabs from "./components/ExhibitionTabs";
-import { edge, edgeStrong, pxPage } from "./lib/theme";
+import { edge, edgeStrong, pxPage, } from "./lib/theme";
 import "./index.css";
+
+function getExhibitionIdFromURL() { // This function checks the URL for a "vol" query parameter and returns the corresponding exhibition ID if it exists in the exhibitions array. If not, it returns null.
+  const fromURL = new URLSearchParams(window.location.search).get("vol");
+  return exhibitions.some((e) => e.id === fromURL) ? fromURL : null;
+}
 
 function MetaFact({
   label,
@@ -129,7 +134,9 @@ function RecipeDetail({ dish, onClose, isOpen }) {
 export default function App() {
   const [activeExhibitionId, setActiveExhibitionId] = useState(
     () =>
-      exhibitions.find((e) => e.status === "current")?.id ?? exhibitions[0].id,
+      getExhibitionIdFromURL() ??
+      exhibitions.find((e) => e.status === "current")?.id ??
+      exhibitions[0].id,
   );
   const activeExhibition =
     exhibitions.find((e) => e.id === activeExhibitionId) ?? exhibitions[0];
@@ -162,6 +169,12 @@ export default function App() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [closeDetail]);
+
+  useEffect(() => {
+    const url = new URL(window.location);
+    url.searchParams.set("vol", activeExhibitionId);
+    window.history.replaceState({}, "", url);
+  }, [activeExhibitionId]);
 
   return (
     <>
