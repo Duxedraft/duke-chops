@@ -240,7 +240,7 @@ export default function App() {
       </header>
 
       <main
-        className={`relative z-1 mx-auto grid max-w-7xl grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-[clamp(28px,3vw,44px)] pt-5 pb-35 ${pxPage}`}
+        className={`relative z-1 mx-auto grid max-w-7xl grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-[clamp(28px,3vw,44px)] pt-5 pb-35 scroll-mt-20 ${pxPage}`}
         id="gallery"
         aria-label="Recipe gallery"
         key={activeExhibitionId}
