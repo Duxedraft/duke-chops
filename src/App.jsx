@@ -2,11 +2,13 @@ import { useCallback, useEffect, useState } from "react";
 import { exhibitions } from "./data/exhibitions";
 import PlateArt from "./components/PlateArt";
 import PlateCard from "./components/PlateCard";
+import { XCircleIcon } from '@heroicons/react/24/solid'
 import ExhibitionTabs from "./components/ExhibitionTabs";
-import { edge, edgeStrong, pxPage, } from "./lib/theme";
+import { edge, edgeStrong, pxPage } from "./lib/theme";
 import "./index.css";
 
-function getExhibitionIdFromURL() { // This function checks the URL for a "vol" query parameter and returns the corresponding exhibition ID if it exists in the exhibitions array. If not, it returns null.
+function getExhibitionIdFromURL() {
+  // This function checks the URL for a "vol" query parameter and returns the corresponding exhibition ID if it exists in the exhibitions array. If not, it returns null.
   const fromURL = new URLSearchParams(window.location.search).get("vol");
   return exhibitions.some((e) => e.id === fromURL) ? fromURL : null;
 }
@@ -35,26 +37,26 @@ function RecipeDetail({ dish, onClose, isOpen }) {
   // Change how the recipe card looks here.
   return (
     <div
-      className={`relative overflow-hidden mx-auto w-full max-w-220 rounded-3xl border bg-ink-soft ${edgeStrong} transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-y-0 scale-100" : "translate-y-4.5 scale-[0.985]"}`}
+      className={`relative overflow-hidden mx-auto w-full max-w-220 rounded-3xl border-2 border-hush bg-paper ${edgeStrong} transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-y-0 scale-100" : "translate-y-4.5 scale-[0.985]"}`}
       role="dialog"
       aria-modal="true"
     >
       <button
-        className={`absolute top-4.5 right-4.5 z-3 flex h-9.5 w-9.5 cursor-pointer items-center justify-center rounded-full border bg-[rgba(23,20,15,0.7)] text-lg leading-none text-paper ${edge} transition-[border-color,transform] duration-200 hover:rotate-90 hover:border-brass`}
+        className={`absolute top-4.5 right-4.5 z-3 flex h-9.5 w-9.5 cursor-pointer ${edge}`}
         aria-label="Close recipe"
         onClick={onClose}
       >
-        &times;
+        <XCircleIcon className="size-8 text-hush transition-[text-color,transform] duration-300 hover:text-brass" />
       </button>
       <PlateArt dish={dish} className="aspect-16/8" />
       <div className="p-[clamp(24px,4vw,46px)]">
         <span className="font-mono text-[11px] tracking-[0.16em] text-brass uppercase">
           Dish No. {dish.no} — {dish.medium}
         </span>
-        <h2 className="my-2.5 mb-3.5 font-serif text-[clamp(28px,4vw,42px)] leading-[1.08] font-normal">
+        <h2 className="my-2.5 mb-3.5 font-serif text-[clamp(28px,4vw,42px)] leading-[1.08] font-normal text-hush">
           {dish.title}
         </h2>
-        <p className="mb-7 max-w-[62ch] text-[15px] leading-[1.75] text-paper-dim">
+        <p className="mb-7 text-[15px] leading-[1.75] text-hush/50">
           {dish.note}
         </p>
         <div
@@ -63,35 +65,35 @@ function RecipeDetail({ dish, onClose, isOpen }) {
           <MetaFact
             label="Time"
             value={dish.time}
-            labelClassName="text-paper/60"
-            valueClassName="text-paper"
+            labelClassName="text-hush/60"
+            valueClassName="text-hush"
           />
           <MetaFact
             label="Serves"
             value={dish.serves}
-            labelClassName="text-paper/60"
-            valueClassName="text-paper"
+            labelClassName="text-hush/60"
+            valueClassName="text-hush"
           />
           <MetaFact
             label="Difficulty"
             value={dish.difficulty}
-            labelClassName="text-paper/60"
-            valueClassName="text-paper"
+            labelClassName="text-hush/60"
+            valueClassName="text-hush"
           />
         </div>
         <div className="grid grid-cols-1 gap-[clamp(28px,4vw,56px)] min-[620px]:grid-cols-[1fr_1.5fr]">
           <div>
-            <h4 className="mb-4 font-mono text-[11px] tracking-[0.14em] text-brass uppercase">
+            <h4 className="mb-4 font-semibold text-xs tracking-[0.14em] text-brass uppercase">
               Ingredients
             </h4>
             <ul className="m-0 list-none p-0">
               {dish.ingredients.map(([name, amt]) => (
                 <li
                   key={name}
-                  className="flex justify-between gap-3 border-b border-dashed border-[rgba(239,232,220,0.14)] py-2.5 text-sm leading-snug"
+                  className="flex justify-between gap-3 border-b border-dashed border-brass/30 py-2.5 text-sm leading-snug"
                 >
-                  <span className="text-paper">{name}</span>
-                  <span className="font-mono text-sm whitespace-nowrap text-paper-dim">
+                  <span className="text-hush/80">{name}</span>
+                  <span className="font-mono text-sm whitespace-nowrap text-hush/60">
                     {amt}
                   </span>
                 </li>
@@ -99,17 +101,17 @@ function RecipeDetail({ dish, onClose, isOpen }) {
             </ul>
           </div>
           <div>
-            <h4 className="mb-4 font-mono text-[11px] tracking-[0.14em] text-brass uppercase">
+            <h4 className="mb-4 font-semibold text-xs tracking-[0.14em] text-brass uppercase">
               Method
             </h4>
             <ol className="m-0 list-none p-0">
               {dish.steps.map((step, i) => (
                 <li
                   key={step}
-                  className="relative pb-5.5 pl-10 text-[14.5px] leading-[1.7] text-paper-dim last:pb-0"
+                  className="relative pb-5.5 pl-10 text-[14.5px] leading-[1.7] text-hush last:pb-0"
                 >
                   <span
-                    className={`absolute -top-px left-0 flex h-6.5 w-6.5 items-center justify-center rounded-full border font-mono text-[11px] text-brass ${edge}`}
+                    className={`absolute -top-px left-0 flex h-6.5 w-6.5 items-center justify-center rounded-full border-[1.5px] border-brass text-xs text-brass ${edge}`}
                   >
                     {i + 1}
                   </span>
@@ -194,7 +196,7 @@ export default function App() {
         </a>
         <a
           href="#gallery"
-          className={`rounded-full border px-3.5 py-2 font-mono text-xs tracking-[0.12em] text-hush/30 transition-[border-color,color] duration-200 hover:border-brass hover:text-hush ${edge}`}
+          className={`rounded-full border px-3.5 py-2 text-[10px] tracking-[0.12em] font-medium text-hush/50 transition-[border-color,color] duration-200 hover:border-brass hover:text-hush ${edge}`}
         >
           View Catalog
         </a>
@@ -268,6 +270,19 @@ export default function App() {
             isOpen={isOpen}
           />
         )}
+      </div>
+
+      <div className={`relative flex flex-col sm:flex-row gap-3 items-start justify-center border-t py-10 text-[11px] tracking-[0.08em] text-hush/70 ${edge} ${pxPage}`}>
+        <h5 className="flex tracking-normal normal-case text-[11px] font-semibold">About the curator</h5>
+        <p className="max-w-5xl flex flex-wrap gap-3 leading-[1.7] text-hush/50 text-xs">
+          Duke Chops isStill Life is written and photographed from a small kitchen with one
+          good window. There is no test kitchen, no team — just one cook who
+          believes a plate deserves the same attention as a painting, and
+          roughly the same lifespan as a bouquet.
+          <a href="mailto:chopsbyduke@gmail.com" className="text-hush/50 hover:text-brass">
+            chopsbyduke@gmail.com
+          </a>
+        </p>
       </div>
 
       <footer

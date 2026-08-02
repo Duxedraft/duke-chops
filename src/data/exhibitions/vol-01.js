@@ -267,7 +267,7 @@ export const vol01 = {
     },
     {
       no: "08",
-      title: "Matcha Roulade | Matcha Swiss Roll",
+      title: "Matcha Roulade | Swiss Roll",
       medium: "Matcha powder, oat milk, heavy cream",
       note: "This roulade (Swiss roll) is a light and airy sponge cake rolled with a luscious matcha cream filling, perfect for any occasion—but better served with tea or coffee.",
       time: "3.5hrs",
