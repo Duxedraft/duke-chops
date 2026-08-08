@@ -37,7 +37,7 @@ function RecipeDetail({ dish, onClose, isOpen }) {
   // Change how the recipe card looks here.
   return (
     <div
-      className={`relative overflow-hidden mx-auto w-full max-w-220 rounded-3xl border-2 border-hush bg-paper ${edgeStrong} transition-transform duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-y-0 scale-100" : "translate-y-4.5 scale-[0.985]"}`}
+      className={`relative overflow-hidden mx-auto w-full max-w-220 rounded-3xl border-2 border-hush bg-paper ${edgeStrong} duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-y-0 scale-100" : "translate-y-4.5 scale-[0.985]"}`}
       role="dialog"
       aria-modal="true"
     >
@@ -46,7 +46,7 @@ function RecipeDetail({ dish, onClose, isOpen }) {
         aria-label="Close recipe"
         onClick={onClose}
       >
-        <XCircleIcon className="size-8 text-hush transition-[text-color,transform,scale] ease-in-out duration-300 hover:text-brass hover:scale-110" />
+        <XCircleIcon className="size-8 text-hush transition-[color,transform] ease-in-out duration-350 hover:text-brass" />
       </button>
       <PlateArt dish={dish} className="aspect-16/8" />
       <div className="p-[clamp(24px,4vw,46px)]">
@@ -258,7 +258,7 @@ export default function App() {
       </main>
 
       <div
-        className={`fixed inset-0 z-100 flex items-start justify-center overflow-y-auto bg-[rgba(10,9,6,0.72)] p-4 py-[clamp(16px,4vh,64px)] backdrop-blur-[3px] transition-opacity duration-300 ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-100 flex items-start justify-center overflow-y-auto bg-ink/70 p-4 py-[clamp(16px,4vh,64px)] backdrop-blur-[3px] transition-opacity duration-300 ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
         onClick={(e) => {
           if (e.target === e.currentTarget) closeDetail();
         }}
