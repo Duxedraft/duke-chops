@@ -11,8 +11,8 @@ export const fritelier = {
   intro: "Nothing to show yet. Stay tuned!",
   meta: {
     pieces: "00",
-    category: "— —",
-    curatedFor: "— —",
+    category: "Dining experience",
+    curatedFor: "French fry enthusiasts",
   },
   dishes: [
     
