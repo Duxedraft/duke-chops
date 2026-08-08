@@ -30,7 +30,7 @@ export default function ExhibitionTabs({ exhibitions, activeId, onSelect }) {
                 : "border-transparent text-hush/50 hover:text-hush/70"
             }`}
           >
-            Vol.{exhibition.volume}
+            {exhibition.volume}
             {exhibition.status === "archived" && (
               <span className="ml-1.5 normal-case text-paper-dim/70"></span>
             )}

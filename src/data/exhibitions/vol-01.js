@@ -4,7 +4,7 @@
 
 export const vol01 = {
   id: "vol-01",
-  volume: "01",
+  volume: "Vol. 01",
   status: "archived",
   headingPlain: "9 dishes,",
   headingAccent: "a black and green affair.",
@@ -86,7 +86,7 @@ export const vol01 = {
       title: "Noire | Tagliatelle",
       medium: "Semolina flour, activated charcoal, eggs",
       note: "Activated bamboo charcoal has a lot of healthy nutrients and can be combined with flour to make some aesthetic pasta.",
-      time: "1.5hrs",
+      time: "1.5 - 2hrs",
       serves: "2",
       difficulty: "Normal",
       ingredients: [
@@ -313,7 +313,7 @@ export const vol01 = {
       title: "Matcha Affogato",
       medium: "Vanilla ice cream, Matcha powder, Blue agave syrup",
       note: "A simple yet indulgent dessert that combines the creamy sweetness of vanilla ice cream with the earthy bitterness of matcha, topped with a drizzle of blue agave syrup.",
-      time: "5 - 10 minutes",
+      time: "5 - 10mins",
       serves: "1",
       difficulty: "Easy",
       ingredients: [

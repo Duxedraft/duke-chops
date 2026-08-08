@@ -46,7 +46,7 @@ function RecipeDetail({ dish, onClose, isOpen }) {
         aria-label="Close recipe"
         onClick={onClose}
       >
-        <XCircleIcon className="size-8 text-hush transition-[text-color,transform] duration-300 hover:text-brass" />
+        <XCircleIcon className="size-8 text-hush transition-[text-color,transform,scale] ease-in-out duration-300 hover:text-brass hover:scale-110" />
       </button>
       <PlateArt dish={dish} className="aspect-16/8" />
       <div className="p-[clamp(24px,4vw,46px)]">
@@ -218,7 +218,7 @@ export default function App() {
           {activeExhibition.status === "current"
             ? "Current exhibition"
             : "Archived exhibition"}{" "}
-          — Vol. {activeExhibition.volume}
+          — {activeExhibition.volume}
         </div>
         <h1 className="mb-7 max-w-[30ch] text-hush font-serif text-[clamp(40px,7vw,92px)] leading-[1.02] font-extralight tracking-[-0.01em] [font-optical-sizing:auto]">
           {activeExhibition.headingPlain}{" "}
@@ -275,7 +275,7 @@ export default function App() {
       <div className={`relative flex flex-col sm:flex-row gap-3 items-start justify-center border-t py-10 text-[11px] tracking-[0.08em] text-hush/70 ${edge} ${pxPage}`}>
         <h5 className="flex tracking-normal normal-case text-[11px] font-semibold">About the curator</h5>
         <p className="max-w-5xl flex flex-wrap gap-3 leading-[1.7] text-hush/50 text-xs">
-          Duke Chops isStill Life is written and photographed from a small kitchen with one
+          Duke Chops by Aman. D, is written and photographed from a small kitchen with one
           good window. There is no test kitchen, no team — just one cook who
           believes a plate deserves the same attention as a painting, and
           roughly the same lifespan as a bouquet.
@@ -291,7 +291,7 @@ export default function App() {
         <span className="font-serif tracking-normal normal-case">
           Duke Chops — A food journal.
         </span>
-        <span>All rights reserved. Eaten shortly after publication.</span>
+        <span className="text-[10px]">All rights reserved. Eaten shortly after publication.</span>
       </footer>
     </>
   );
